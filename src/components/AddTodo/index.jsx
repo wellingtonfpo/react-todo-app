@@ -2,11 +2,12 @@ import { useState } from 'react';
 import Input from '../Input';
 import Button from '../Button';
 
-function AddTodo({ onAddTodo }) {
+function AddTodo({ onAddTodo, error }) {
   const [todo, setTodo] = useState('');
 
   return (
-    <>
+    <div className='add-todo'>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <Input
         type='text'
         placeholder='Add new todo'
@@ -21,7 +22,7 @@ function AddTodo({ onAddTodo }) {
       >
         Add Todo
       </Button>
-    </>
+    </div>
   );
 }
 
